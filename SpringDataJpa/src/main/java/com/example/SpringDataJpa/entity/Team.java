@@ -5,12 +5,14 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import lombok.Getter;
+import lombok.ToString;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Getter
+@ToString(of = {"name"})
 public class Team {
     @Id @GeneratedValue
     private Long id;

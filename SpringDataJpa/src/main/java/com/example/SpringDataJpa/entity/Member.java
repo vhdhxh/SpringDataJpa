@@ -4,11 +4,12 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Getter
 @Setter
-
+@ToString(of = {"id", "username", "age"})
 public class Member {
 
     protected  Member() {
