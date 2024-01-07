@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
 @Transactional
-class MemberJpaRepositoryTest {
+class MemberServiceDtoJpaRepositoryTest {
 
     @Autowired MemberJpaRepository memberJpaRepository;
 
