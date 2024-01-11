@@ -24,6 +24,7 @@ public class MemberApi {
    }
 
    //로그인
+
    @PostMapping("/login")
     public ResponseEntity Login(HttpSession httpSession, MemberRequestDto memberRequestDto){
        httpSession.setAttribute("login",memberRequestDto);

@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import org.springframework.data.annotation.CreatedDate;
 
 import java.time.LocalDateTime;
 
@@ -19,7 +20,10 @@ public class Board {
     private String contents;
     private String title;
     private String writer;
-    private LocalDateTime time;
+
+    @CreatedDate
+    @Column(updatable = false)
+    private LocalDateTime createdTime;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
