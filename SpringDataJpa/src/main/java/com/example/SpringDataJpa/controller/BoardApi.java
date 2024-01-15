@@ -28,11 +28,9 @@ public class BoardApi {
 
     //게시판 쓰기
     @PostMapping("/Board")
-    public ResponseEntity writeBoard(@RequestBody BoardWriteDto boardWriteDto,
-                                     Long id , String email , String password , String username , int age) {
-        MemberRequestDto memberRequestDto = new MemberRequestDto(id, email, password, username, age);
-        Long boardid =boardService.writeBoard(boardWriteDto,memberRequestDto);
-        return ResponseEntity.status(HttpStatus.OK).body(boardid);
+    public ResponseEntity writeBoard(@RequestBody BoardWriteDto boardWriteDto) {
+        Long boardId =boardService.writeBoard(boardWriteDto);
+        return ResponseEntity.status(HttpStatus.OK).body(boardId);
     }
 
 }

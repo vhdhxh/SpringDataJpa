@@ -1,15 +1,12 @@
 package com.example.SpringDataJpa.service;
 
-import com.example.SpringDataJpa.dto.BoardPagingDto;
 import com.example.SpringDataJpa.dto.BoardWriteDto;
-import com.example.SpringDataJpa.dto.MemberRequestDto;
 import com.example.SpringDataJpa.entity.Board;
 import com.example.SpringDataJpa.entity.Member;
 import com.example.SpringDataJpa.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
@@ -29,15 +26,15 @@ public class BoardService {
        return boardList;
     }
 
-    public Long writeBoard(BoardWriteDto boardWriteDto , MemberRequestDto memberRequestDto) {
-        Member member = memberRequestDto.toEntitiy(memberRequestDto);
+    public Long writeBoard(BoardWriteDto boardWriteDto) {
         Board board = Board.builder()
                 .title(boardWriteDto.getTitle())
-                .writer(member.getUsername())
                 .contents(boardWriteDto.getContents())
-                .member(member)
                 .build();
         return boardRepository.save(board).getId();
     }
 
+    public void deleteBoard(Long id) {
+        boardRepository.deleteById(id);
+    }
 }
