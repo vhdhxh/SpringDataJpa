@@ -29,6 +29,7 @@ class MemberApiTest {
     public void testRegister() throws Exception {
         MemberDto memberDto = MemberDto.builder().age(1).build();
 
+
         // memberDto 필드를 적절하게 설정하세요
 
         ObjectMapper objectMapper = new ObjectMapper();
